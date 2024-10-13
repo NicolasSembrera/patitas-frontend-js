@@ -37,7 +37,7 @@ function obtenerFechaActual() {
   const fecha = new Date();
 
   const dia = String(fecha.getDate()).padStart(2, "0");
-  const mes = String(fecha.getMonth() + 1).padStart(2, "0"); // Los meses comienzan en 0
+  const mes = String(fecha.getMonth() + 1).padStart(2, "0");
   const anio = fecha.getFullYear();
 
   const horas = String(fecha.getHours()).padStart(2, "0");
@@ -64,7 +64,7 @@ async function logout(tipoDocumento, numeroDocumento) {
     });
 
     if (!response.ok) {
-      mostrarAlerta("Error: Ocurrió un problema en la autenticación1");
+      mostrarAlerta("Error: Ocurrió un problema en el cierre de Sesion");
       throw new Error(`Error: ${response.statusText}`);
     }
 
