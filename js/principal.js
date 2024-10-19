@@ -2,13 +2,10 @@ window.addEventListener("load", function () {
   const msgSuccess = document.getElementById("msgSuccess");
   const btnCerrarSesion = this.document.getElementById("btnCerrarSesion");
 
-  // recuperar nombre de usuario
   const result = JSON.parse(window.localStorage.getItem("result"));
   mostrarAlerta(result.nombreUsuario);
 
-   
-  //CierreSesion
-  btnCerrarSesion.addEventListener("click", function () {
+     btnCerrarSesion.addEventListener("click", function () {
 
     var data = {
         tipoDocumento: "",
@@ -47,7 +44,12 @@ function obtenerFechaActual() {
 }
 
 async function logout(tipoDocumento, numeroDocumento) {
-  const url = "http://localhost:8085/login/log_out";
+  //Llamar mediante WebClient
+  //const url = "http://localhost:8085/login/log_out";
+
+//URL Feign
+const url = "http://localhost:8085/login/log_out_sync";
+
   const data = {
     tipoDocumento: tipoDocumento,
     numeroDocumento: numeroDocumento,
